@@ -1,11 +1,11 @@
 <template>
   <div class="cart-control">
     <transition name="move" enter-active-class="animated fadeInRight" leave-active-class="animated fadeOutRight">
-      <div class="decrease icon-remove_circle_outline" v-show="food.count>0" @click="decrease($event)">
+      <div class="decrease icon-remove_circle_outline" v-show="food.count>0" @click.stop="decrease($event)">
       </div>
     </transition>
     <div class="count" v-show="food.count>0">{{food.count}}</div>
-    <div class="increase icon-add_circle" @click="increase($event)"></div>
+    <div class="increase icon-add_circle" @click.stop="increase($event)"></div>
   </div>
 </template>
 <script type="text/ecmascript-6">
