@@ -1,19 +1,19 @@
 <template>
   <div class="rating-select">
     <div class="rating-type border-1">
-      <span class="inline-block positive" :class="{'active':selectType===2}" @click="select(2, $event)">{{desc.all}}<span class="count">40</span></span>
-      <span class="inline-block positive" :class="{'active':selectType===0}" @click="select(0, $event)">{{desc.positive}}<span class="count">40</span></span>
-      <span class="inline-block negtive" :class="{'active':selectType===1}" @click="select(1, $event)">{{desc.negtive}}<span class="count">40</span></span>
+      <span class="inline-block positive" :class="{'active':selectType===2}" @click="select(2, $event)">{{desc.all}}<span class="count">{{ratings.length}}</span></span>
+      <span class="inline-block positive" :class="{'active':selectType===0}" @click="select(0, $event)">{{desc.positive}}<span class="count">{{positives.length}}</span></span>
+      <span class="inline-block negtive" :class="{'active':selectType===1}" @click="select(1, $event)">{{desc.negtive}}<span class="count">{{negtives.length}}</span></span>
     </div>
-    <div class="switch" :class="{'on':onlyContent}">
+    <div class="switch" :class="{'on':onlyContent}" @click="toggleContent">
       <i class="icon-check_circle"></i>
       <span class="text">只看有内容的评价</span>
     </div>
   </div>
 </template>
 <script type="text/ecmascript-6">
-//  const POSITIVE = 0
-//  const NEGTIVE = 1
+  const POSITIVE = 0
+  const NEGTIVE = 1
   const ALL = 2
   export default {
     props: {
@@ -48,12 +48,32 @@
         onlyContent: this.initialOnlyContent
       }
     },
+    computed: {
+      positives () {
+        return this.ratings.filter((rating) => {
+          return rating.rateType === POSITIVE
+        })
+      },
+      negtives () {
+        return this.ratings.filter((rating) => {
+          return rating.rateType === NEGTIVE
+        })
+      }
+    },
     methods: {
       select (type, event) {
         if (!event._constructed) {
           return
         }
         this.selectType = type
+        this.$emit('changeSelect', type)
+      },
+      toggleContent (event) {
+        if (!event._constructed) {
+          return
+        }
+        this.onlyContent = !this.onlyContent
+        this.$emit('toggleContent', this.onlyContent)
       }
     }
   }
