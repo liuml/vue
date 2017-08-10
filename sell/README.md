@@ -1,6 +1,6 @@
 # sell
 
-> A Vue.js project
+> 基于Vue2.0开发的一款仿饿了么商家模块的小项目
 
 ## Build Setup
 
