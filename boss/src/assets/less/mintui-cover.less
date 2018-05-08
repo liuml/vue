@@ -1,0 +1,101 @@
+#app{
+  // tabbar 样式重写覆盖
+  .mint-tabbar{
+    background:rgba(236,236,236,0.90);
+    .mint-tab-item{
+      color:#83838b;
+      &.is-selected{
+        color:#cca873;
+        background-color: transparent;
+      }
+    }
+  }
+  // swipe
+  .mint-tab-item-icon{
+    width: .2rem;
+    height: .2rem;
+  }
+  .mint-tab-item-label{
+    font-size: .1rem;
+  }
+//  button
+  .mint-button{
+    height: .45rem;
+    line-height: .45rem;
+    font-size: .17rem;
+  }
+  .mint-button--primary{
+    background-color: #cca873;
+  }
+//  cell
+  .mint-cell{
+    min-height: .5rem;
+  }
+  .mint-cell-wrapper{
+    padding: 0 .15rem;
+    font-size: .15rem;
+  }
+  .mint-cell img{
+    margin-right: .16rem;
+    width: .16rem;
+  }
+  .mint-cell-allow-right::after{
+    width: 7px;
+    height: 7px;
+  }
+  .mint-cell-label{
+    display: inline-block;
+    margin-top: 0;
+    font-size: inherit;
+  }
+//  header
+  .mint-header{
+    height: .44rem;
+    font-size: .17rem;
+    background: #ffffff;
+    color: #333;
+    .mint-button-text{
+      font-size: .15rem;
+      color:#cca873;
+    }
+  }
+  .mint-header-button.is-right{
+    font-size: .15rem;
+  }
+//  radio
+  .mint-radio-input:checked + .mint-radio-core{
+    background-color: #cca873;
+    border-color: #cca873;
+  }
+//  popup
+  .mint-popup{
+    width: 100%;
+  }
+  .picker-toolbar{
+    font-size: 0;
+    .cancel, .confirm{
+      display: inline-block;
+      width: 50%;
+      padding: 0 .1rem;
+      line-height: 40px;
+      font-size: 16px;
+    }
+    .cancel{
+      color: #666;
+    }
+    .confirm{
+      text-align: right;
+      color: #cca873;
+    }
+  }
+//  loadmore
+  .mint-loadmore{
+    min-height: calc(100vh - .9rem);
+  }
+}
+.mint-msgbox-confirm, .mint-msgbox-confirm:active{
+  color: #cca873;
+}
+.mint-actionsheet-listitem{
+  color: red;
+}
